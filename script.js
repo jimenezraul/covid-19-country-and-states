@@ -4,7 +4,6 @@ const covidUsa = document.getElementById('covidUsa');
 const global = document.getElementById("global");
 const usa = document.getElementById("usa");
 const title = document.getElementById("title");
-const countryOrState = document.getElementById("countryOrState");
 
 // Search
 function myFunction() {
@@ -80,8 +79,6 @@ function GetSortOrder(prop) {
 
 // Get Countries 
 async function getCountries() {
-    countryOrState.classList.remove('fa-flag-usa', 'states');
-    countryOrState.classList.add('fa-globe-americas', 'country');
     document.getElementById("myInput").placeholder = "Search by Country...";
     title.innerHTML = "Country"
     covidGlobal.innerHTML = "";
@@ -211,7 +208,6 @@ function abbrState(input, to) {
         ['Northern Mariana Islands', 'MP'],
     ];
     if (to == 'abbr') {
-        console.log(input)
         for (i = 0; i < states.length; i++) {
             if (states[i][0] == input) {
                 return (input);
@@ -230,8 +226,6 @@ function abbrState(input, to) {
 
 // Get all Usa States
 async function getCovidStates() {
-    countryOrState.classList.remove('fa-globe-americas', 'country');
-    countryOrState.classList.add('fa-flag-usa', 'states');
     covidUsa.innerHTML = "";
     title.innerHTML = "United States"
     const url = "https://covidtracking.com/api/states"
@@ -246,7 +240,6 @@ async function getCovidStates() {
         const response = await fetch(url);
         const data = await response.json();
         data.sort(GetSortOrder("state"));
-        console.log(data)
         for (let i = 0; i < data.length; i++) {
             // API info
             let state = abbrState(data[i].state, 'name');
