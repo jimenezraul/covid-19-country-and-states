@@ -229,7 +229,7 @@ async function getCovidStates() {
     covidUsa.innerHTML = "";
     title.innerHTML = "United States"
     const url = "https://covidtracking.com/api/states"
-
+    input.value = ''
     try {
         showUsaLoadingSpinner();
         covidUsa.hidden = false;
