@@ -77,7 +77,7 @@ function GetSortOrder(prop) {
     }
 }
 
-// Get Countries 
+// Get Countries
 async function getCountries() {
     document.getElementById("myInput").placeholder = "Search by Country...";
     title.innerHTML = "Country"
