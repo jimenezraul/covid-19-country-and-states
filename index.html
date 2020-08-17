@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <title>Covid-19 Search</title>
+    <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="icon" type="image/png" href="https://www.google.com/s2/u/0/favicons?domain=Raulthebarber">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Hello, World!</h1>
+    <div class="bg-img row justify-content-center">
+        <div class="col-8 col-md-5 col-lg-4 col-xl-3 mb-2 mb-md-0 search"><span class="fa fa-search"></span><input id="myInput" onkeyup="myFunction()" class="form-control form-control-lg"
+            type="search" placeholder=""></div>
+    </div>
+    
+    <div class="container">
+        <div class="row justify-content-center text-center mt-2">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5"><i id="countryOrState" class="p-2 fas "></i><h1 id="title" class="font-weight-bold"></h1></div>
+        </div>
+    </div>
+
+    <!-- Loader -->
+    <div class="container" id="loader">
+        <div class="loader-row row justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="covidGlobal" class="row justify-content-center">
+
+        </div>
+        <div id="covidUsa" class="row justify-content-center">
+
+        </div>
+    </div>
+    <div class="bottomLayer"></div>
+    <footer class="bg-custom text-white mt-4 fixed-bottom">
+        <div class="container-fluid py-3">
+            <div class="d-flex justify-content-center text-center">
+                <div id="global" onClick="getCountries()" class="col-6 col-md-4 col-lg-3 col-xl-2 text-center"><i class="p-2 fas fa-globe-americas"></i><h3>Country</h3></div>
+                <div id="usa" onClick="getCovidStates()" class="col-6 col-md-4 col-lg-3 col-xl-2 text-center"><i class="p-2 fas fa-flag-usa"></i><h3>States</h3></div>
+            </div>
+        </div>
+    </footer>
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
 

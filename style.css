@@ -1,9 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-html{
+.search { position: relative; }
+.search input { text-indent: 30px;}
+.search .fa-search { 
+  position: absolute;
+  top: 173px;
+  left: 30px;
+  font-size: 20px;
+}
+html {
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0;
     min-height: 100vh;
+    background-color: #e6e4e4!important;
+    color: black;
+    font-family: Montserrar, sans-serif;
+    font-weight: 700;
+    overflow-x: hidden;
+}
+
+.bg-img {
+    background: url(img/virus.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+
+#myInput {
+    margin-top: 10rem;
+}
+
+/* loader */
+.loader {
+    border: 16px solid #e70db1; /* Pink */
+    border-top: 16px solid rgb(30, 23, 129); /* Dark Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.5s linear infinite;
+  }
+  
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+#covid {
+    animation: fadein .2s;
+    overflow-x: hidden;
+}
+
+@keyframes fadein{
+    0%   { opacity: 0; }
+    100% { opacity: 1; }  
+}
+
+.loader-row {
+    height: 30vh;
+    margin-top: 15rem;
+}
+
+.shadow {
+    box-shadow:0 .2rem .5rem rgba(0,0,0,.15)!important;
+}
+
+.col-12 p {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.active {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.fa-flag-usa, .fa-globe-americas{
+    font-size: 20px;
+}
+
+.bg-custom {
+    background-color: rgb(8, 6, 34);
+}
+
+.bottomLayer{
+    height: 10rem;
+}
+
+#global, #usa {
+    cursor: pointer;
+}
+
+.country{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    font-size: 35px;
+}
+
+.states{
+    position: absolute;
+    top: 0;
+    left: 50px;
+    font-size: 35px;
 }
