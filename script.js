@@ -229,12 +229,12 @@ async function getCovidStates() {
     covidUsa.innerHTML = "";
     title.innerHTML = "United States";
     let input = document.getElementById("myInput");
-    input.value = ''
+    input.value = '';
     const url = "https://covidtracking.com/api/states";
     usa.classList.add("active");
     global.classList.remove("active");
-    covidUsa.hidden = false;
     covidGlobal.hidden = true;
+    covidUsa.hidden = false;
     try {
         showUsaLoadingSpinner();
         document.getElementById("myInput").placeholder = "Search by US States...";
