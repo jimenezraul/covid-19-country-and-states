@@ -87,7 +87,7 @@ async function getCountries() {
     const apiUrl = 'https://coronavirus-19-api.herokuapp.com/countries';
     covidUsa.hidden = true;
     covidGlobal.hidden = false;
-    global.classList.add("active")
+    global.classList.add("active");
     usa.classList.remove("active");
     try {
         showLoadingSpinner();
@@ -227,15 +227,16 @@ function abbrState(input, to) {
 // Get all Usa States
 async function getCovidStates() {
     covidUsa.innerHTML = "";
-    title.innerHTML = "United States"
-    const url = "https://covidtracking.com/api/states"
-
+    title.innerHTML = "United States";
+    let input = document.getElementById("myInput");
+    input.value = ''
+    const url = "https://covidtracking.com/api/states";
+    usa.classList.add("active");
+    global.classList.remove("active");
+    covidUsa.hidden = false;
+    covidGlobal.hidden = true;
     try {
         showUsaLoadingSpinner();
-        covidUsa.hidden = false;
-        usa.classList.add("active");
-        global.classList.remove("active");
-        covidGlobal.hidden = true;
         document.getElementById("myInput").placeholder = "Search by US States...";
         const response = await fetch(url);
         const data = await response.json();
