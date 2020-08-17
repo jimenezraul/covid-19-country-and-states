@@ -233,13 +233,14 @@ async function getCovidStates() {
     usa.classList.add("active");
     global.classList.remove("active");
     covidGlobal.hidden = true;
+    covidUsa.hidden = false;
     try {
         showUsaLoadingSpinner();
         document.getElementById("myInput").placeholder = "Search by US States...";
         const response = await fetch(url);
         const data = await response.json();
         console.log(response)
-        
+
         for (let i = 0; i < data.length; i++) {
             // API info
             let state = abbrState(data[i].state, 'name');
