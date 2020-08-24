@@ -1,9 +1,6 @@
 # Covid-19 Country and States Search
 
-## API Credits
+## API Credits to NovelCOVID - github.com/NovelCOVID/API
 
-## NovelCOVID 
 ### https://coronavirus-19-api.herokuapp.com/countries
-
-## Covidtracking.com
-### https://covidtracking.com/api/states
+### https://corona.lmao.ninja/v2/states?sort&yesterday

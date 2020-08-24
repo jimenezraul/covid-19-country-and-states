@@ -141,87 +141,6 @@ async function getCountries() {
     }
 }
 
-function abbrState(input, to) {
-
-    var states = [
-        ['Alabama', 'AL'],
-        ['Alaska', 'AK'],
-        ['American Samoa', 'AS'],
-        ['Arizona', 'AZ'],
-        ['Arkansas', 'AR'],
-        ['Armed Forces Americas', 'AA'],
-        ['Armed Forces Europe', 'AE'],
-        ['Armed Forces Pacific', 'AP'],
-        ['California', 'CA'],
-        ['Colorado', 'CO'],
-        ['Connecticut', 'CT'],
-        ['Delaware', 'DE'],
-        ['District Of Columbia', 'DC'],
-        ['Florida', 'FL'],
-        ['Georgia', 'GA'],
-        ['Guam', 'GU'],
-        ['Hawaii', 'HI'],
-        ['Idaho', 'ID'],
-        ['Illinois', 'IL'],
-        ['Indiana', 'IN'],
-        ['Iowa', 'IA'],
-        ['Kansas', 'KS'],
-        ['Kentucky', 'KY'],
-        ['Louisiana', 'LA'],
-        ['Maine', 'ME'],
-        ['Marshall Islands', 'MH'],
-        ['Maryland', 'MD'],
-        ['Massachusetts', 'MA'],
-        ['Michigan', 'MI'],
-        ['Minnesota', 'MN'],
-        ['Mississippi', 'MS'],
-        ['Missouri', 'MO'],
-        ['Montana', 'MT'],
-        ['Nebraska', 'NE'],
-        ['Nevada', 'NV'],
-        ['New Hampshire', 'NH'],
-        ['New Jersey', 'NJ'],
-        ['New Mexico', 'NM'],
-        ['New York', 'NY'],
-        ['North Carolina', 'NC'],
-        ['North Dakota', 'ND'],
-        ['Northern Mariana Islands', 'NP'],
-        ['Ohio', 'OH'],
-        ['Oklahoma', 'OK'],
-        ['Oregon', 'OR'],
-        ['Pennsylvania', 'PA'],
-        ['Puerto Rico', 'PR'],
-        ['Rhode Island', 'RI'],
-        ['South Carolina', 'SC'],
-        ['South Dakota', 'SD'],
-        ['Tennessee', 'TN'],
-        ['Texas', 'TX'],
-        ['US Virgin Islands', 'VI'],
-        ['Utah', 'UT'],
-        ['Vermont', 'VT'],
-        ['Virginia', 'VA'],
-        ['Washington', 'WA'],
-        ['West Virginia', 'WV'],
-        ['Wisconsin', 'WI'],
-        ['Wyoming', 'WY'],
-        ['Northern Mariana Islands', 'MP'],
-    ];
-    if (to == 'abbr') {
-        for (i = 0; i < states.length; i++) {
-            if (states[i][0] == input) {
-                return (input);
-            }
-        }
-    } else if (to == 'name') {
-        input = input.toUpperCase();
-        for (i = 0; i < states.length; i++) {
-            if (states[i][1] == input) {
-                return (states[i][0]);
-            }
-        }
-    }
-
-}
 
 // Get all Usa States
 async function getCovidStates() {
@@ -229,28 +148,28 @@ async function getCovidStates() {
     title.innerHTML = "United States";
     let input = document.getElementById("myInput");
     input.value = ''
-    const url = "https://covidtracking.com/api/v1/states/current.json";
+    const url = "https://corona.lmao.ninja/v2/states?sort&yesterday";
     usa.classList.add("active");
     global.classList.remove("active");
     covidGlobal.hidden = true;
     covidUsa.hidden = false;
+    
     try {
         showUsaLoadingSpinner();
         document.getElementById("myInput").placeholder = "Search by US States...";
         const response = await fetch(url);
         const data = await response.json();
-        console.log(response)
-
+        data.sort(GetSortOrder("state"));
         for (let i = 0; i < data.length; i++) {
             // API info
-            let state = abbrState(data[i].state, 'name');
-            let cases = data[i].total;
-            let deaths = data[i].death;
+            let state = data[i].state;
+            let cases = data[i].cases;
+            let deaths = data[i].deaths;
             let recovered = data[i].recovered;
             if (recovered === null) {
                 recovered = 0
             }
-            let todayCases = data[i].positiveIncrease;
+            let todayCases = data[i].todayCases;
             // Create Elements
             const div = document.createElement('div');
             const cardDiv = document.createElement('div');
