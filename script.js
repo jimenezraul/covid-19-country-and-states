@@ -146,7 +146,7 @@ async function getCovidStates() {
         }
 
     } catch (error) {
-
+        getCovidStates();
     }
 
 }
