@@ -167,7 +167,7 @@ function getAllStatesCases(state, cases, todayCases, deaths, recovered) {
     let casesTitle = ["Total Cases:", "New Cases:", "Deaths:", "Recovered:"]
     allCases.forEach((allCase, index) => {
         const pElement = document.createElement('p');
-        pElement.innerHTML = `<span class="font-weight-bold">${casesTitle[index]} </span>` + allCase;
+        pElement.innerHTML = `<span class="font-weight-bold">${casesTitle[index]} </span>${allCase}`;
         cardDiv.append(pElement);
     });
     div.className = 'carta col-12 col-sm-6 col-md-6 col-lg-4 justify-content-center';
@@ -196,7 +196,7 @@ function getAllCountriesCases(country, cases, todayCases, deaths, recovered) {
     let casesTitle = ["Total Cases:", "New Cases:", "Deaths:", "Recovered:"]
     allCases.forEach((allCase, index) => {
         const pElement = document.createElement('p');
-        pElement.innerHTML = `<span class="font-weight-bold">${casesTitle[index]} </span>` + allCase;
+        pElement.innerHTML = `<span class="font-weight-bold">${casesTitle[index]} </span>${allCase}`;
         cardDiv.append(pElement);
     });
     div.className = 'carta col-12 col-sm-6 col-md-6 col-lg-4 justify-content-center';
