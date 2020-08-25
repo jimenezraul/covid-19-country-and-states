@@ -99,6 +99,7 @@ async function getCountries() {
         const data = await response.json();
         data.sort(GetSortOrder("country"));
         for (let i = 0; i < data.length; i++) {
+            
             // API info
             let country = data[i].country;
             let cases = data[i].cases;
@@ -131,6 +132,7 @@ async function getCovidStates() {
         const data = await response.json();
         data.sort(GetSortOrder("state"));
         for (let i = 0; i < data.length; i++) {
+
             // API info
             let state = data[i].state;
             let cases = data[i].cases;
@@ -156,13 +158,15 @@ function getAllStatesCases(state, cases, todayCases, deaths, recovered) {
     const cardDiv = document.createElement('div');
     const header = document.createElement('div');
     const countryH1Element = document.createElement('h3');
+
     // Card Header
     countryH1Element.innerHTML = state;
     countryH1Element.className = "font-weight-bold";
     header.append(countryH1Element);
     header.className = 'card-header';
     cardDiv.append(header);
-    // Total Cases 
+
+    // Total Cases, New Cases, Deaths and Recovered
     let allCases = [cases, todayCases, deaths, recovered]
     let casesTitle = ["Total Cases:", "New Cases:", "Deaths:", "Recovered:"]
     allCases.forEach((allCase, index) => {
@@ -172,6 +176,7 @@ function getAllStatesCases(state, cases, todayCases, deaths, recovered) {
     });
     div.className = 'carta col-12 col-sm-6 col-md-6 col-lg-4 justify-content-center';
     cardDiv.className = 'col-12 card text-center mt-3 round shadow p-0';
+
     // Append card div to main div
     div.append(cardDiv);
     document.getElementById("covidUsa").appendChild(div);
@@ -185,13 +190,15 @@ function getAllCountriesCases(country, cases, todayCases, deaths, recovered) {
     const cardDiv = document.createElement('div');
     const header = document.createElement('div');
     const countryH1Element = document.createElement('h3');
+
     // Card Header
     countryH1Element.innerHTML = country;
     countryH1Element.className = "font-weight-bold";
     header.append(countryH1Element);
     header.className = 'card-header';
     cardDiv.append(header);
-    // Total Cases 
+
+    // Total Cases, New Cases, Deaths and Recovered
     let allCases = [cases, todayCases, deaths, recovered]
     let casesTitle = ["Total Cases:", "New Cases:", "Deaths:", "Recovered:"]
     allCases.forEach((allCase, index) => {
@@ -201,6 +208,7 @@ function getAllCountriesCases(country, cases, todayCases, deaths, recovered) {
     });
     div.className = 'carta col-12 col-sm-6 col-md-6 col-lg-4 justify-content-center';
     cardDiv.className = 'col-12 card text-center mt-3 round shadow p-0';
+
     // Append card div to main div
     div.append(cardDiv);
     document.getElementById("covidGlobal").appendChild(div);
