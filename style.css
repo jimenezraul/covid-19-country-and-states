@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-.search { position: relative; }
-.search input { text-indent: 30px;}
-.search .fa-search { 
-  position: absolute;
-  top: 173px;
-  left: 30px;
-  font-size: 20px;
+.search {
+    position: relative;
 }
+
+.search input {
+    text-indent: 30px;
+}
+
+.search .fa-search {
+    position: absolute;
+    top: 173px;
+    left: 30px;
+    font-size: 20px;
+}
+
 html {
     box-sizing: border-box;
     overflow-x: hidden;
@@ -16,15 +22,23 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-    background-color: #e6e4e4!important;
+    background-color: #f8f8f8!important;
     color: black;
     font-family: Montserrar, sans-serif;
     font-weight: 700;
     overflow-x: hidden;
 }
 
-.bg-img {
-    background: url(img/virus.jpg);
+.bg-img-country {
+    background: url(img/world.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+
+.bg-img-usa {
+    background: url(img/usa.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -36,18 +50,25 @@ body {
 }
 
 /* loader */
+
 .loader {
-    border: 16px solid #e70db1; /* Pink */
-    border-top: 16px solid rgb(30, 23, 129); /* Dark Blue */
+    border: 16px solid #e70db1;
+    /* Pink */
+    border-top: 16px solid rgb(30, 23, 129);
+    /* Dark Blue */
     border-radius: 50%;
     width: 100px;
     height: 100px;
     animation: spin 1.5s linear infinite;
-  }
-  
+}
+
 @keyframes spin {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 #covid {
@@ -55,9 +76,13 @@ body {
     overflow-x: hidden;
 }
 
-@keyframes fadein{
-    0%   { opacity: 0; }
-    100% { opacity: 1; }  
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .loader-row {
@@ -66,7 +91,7 @@ body {
 }
 
 .shadow {
-    box-shadow:0 .2rem .5rem rgba(0,0,0,.15)!important;
+    box-shadow: 0 .2rem .5rem rgba(0, 0, 0, .15)!important;
 }
 
 .col-12 p {
@@ -80,7 +105,7 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.fa-flag-usa, .fa-globe-americas{
+.fa-flag-usa, .fa-globe-americas {
     font-size: 20px;
 }
 
@@ -88,7 +113,7 @@ body {
     background-color: rgb(8, 6, 34);
 }
 
-.bottomLayer{
+.bottomLayer {
     height: 10rem;
 }
 

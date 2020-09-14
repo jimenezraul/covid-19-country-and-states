@@ -4,6 +4,7 @@ const covidUsa = document.getElementById('covidUsa');
 const global = document.getElementById("global");
 const usa = document.getElementById("usa");
 const title = document.getElementById("title");
+const image = document.getElementById("image");
 
 // Search
 function myFunction() {
@@ -84,6 +85,8 @@ function GetSortOrder(prop) {
 
 // Get Countries
 async function getCountries() {
+    image.classList.remove("bg-img-usa");
+    image.classList.add("bg-img-country");
     document.getElementById("myInput").placeholder = "Search by Country...";
     title.innerHTML = "Country"
     covidGlobal.innerHTML = "";
@@ -153,6 +156,8 @@ async function getCovidStates() {
 
 // Append all States Cases to Div
 function getAllStatesCases(state, cases, todayCases, deaths, recovered) {
+    image.classList.remove("bg-img-country");
+    image.classList.add("bg-img-usa");
     // Create Elements
     const div = document.createElement('div');
     const cardDiv = document.createElement('div');
